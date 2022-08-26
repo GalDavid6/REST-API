@@ -26,8 +26,8 @@ def add_claims_to_jwt(identity):
     return {'is admin': False}
 
 @jwt.token_in_blocklist_loader
-def check_if_token_in_blacklist(decrypted_token):
-    return decrypted_token['jti'] in BLACKLIST
+def check_if_token_in_blacklist(jwt_headers, jwt_payload):
+    return jwt_payload['jti'] in BLACKLIST
 
 @jwt.expired_token_loader
 def expired_token_callback():
@@ -51,14 +51,14 @@ def missing_token_callback(error):
     }), 401
 
 @jwt.needs_fresh_token_loader
-def token_not_fresh_callback():
+def token_not_fresh_callback(jwt_headers, jwt_payload):
     return jsonify({
-        'description': 'the token is not fresh',
+        'description': 'The token is not fresh',
         'error': 'fresh_token_required.'
     }), 401
 
 @jwt.revoked_token_loader
-def revoked_token_callback():
+def revoked_token_callback(jwt_headers, jwt_payload):
     return jsonify({
         'description': 'The token has been revoked',
         'error': 'token_revoked.'
