@@ -1,5 +1,10 @@
 # REST-API
 
+## Description 
+
+REST-API framework for a store.
+Including API for Users(Register, Login, Logout & Authentication) and Stores/Items(Add, Update, Remove)
+
 ## Installation
 
 ```
