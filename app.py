@@ -20,8 +20,8 @@ app.secret_key = 'gal'  # app.config['JWT_SECRET_KEY']
 jwt = JWTManager(app)
 
 @jwt.additional_claims_loader
-def add_claims_to_jwt(identity):
-    if identity == 1:
+def add_claims_to_jwt(sub):
+    if sub == 1:
         return {'is admin': True}
     return {'is admin': False}
 
