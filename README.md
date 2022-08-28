@@ -1,17 +1,14 @@
 # Store REST-API
 
-> why work hard when you can automate stuff?
 ## Description 
 
 REST-API framework for a store.
 Including API for Users(Register, Login, Logout & Authentication) and Stores/Items(Add, Update, Remove)
 
----
-
 #### Technologies
 
 - Python
-- Postman(Optinal)
+- Postman(Optinal) - Not must, I tested the app with Postman you can also doing that using your browser
 
 ## Libraries
 
@@ -20,14 +17,14 @@ Including API for Users(Register, Login, Logout & Authentication) and Stores/Ite
 - Flask-JWT-Extended
 - Flask-SQLAlchemy
 
----
-
 #### Project Files
 
-- Main.py - the main program.
-- Functions.py - all the functions the main needs.
-- WebDriverCFG - including all chromeoptions commands.
-- ConstVarPage - including all the const var for the program.
+- app.py - the main program.
+- db.py - importing and creating SQLAlchemy object.
+- blacklist.py - set(object) of blocked user.
+- requirements.txt - List of all libraries needed to run the app.
+- models(folder) - OOP (Items, Stores, Users).
+- resource(folder) - Resources (Items, Stores, Users).
 
 ## How To Use
 
@@ -44,8 +41,6 @@ pip install flask_restful
 pip install flask_sqlalchemy
 python app.py
 ```
-
----
 
 ## Author Info
 
